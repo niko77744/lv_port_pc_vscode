@@ -42,6 +42,12 @@ target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS
 add_subdirectory(lv_demos)
 target_link_libraries(lvgl PUBLIC lv_demos_ext)
 
+# Add the C3 Mini smartwatch demo (separate executable, own LVGL config)
+option(BUILD_C3_MINI "Build the C3 Mini watch demo (bin/c3.exe)" ON)
+if(BUILD_C3_MINI)
+    add_subdirectory(c3_mini)
+endif()
+
 # Create the main executable (LVGL-only, no RTOS)
 add_executable(main
     ${PROJECT_SOURCE_DIR}/main/src/main.c

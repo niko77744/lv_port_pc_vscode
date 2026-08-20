@@ -113,6 +113,28 @@ int main(int argc, char **argv)
 
 There are also FreeType and FFmpeg support. You can install these according to the followings:
 
+## C3 Mini smartwatch demo (`bin/c3.exe`)
+
+The project also contains the [esp32-c3-mini](https://github.com/fbiego/esp32-c3-mini)
+watch UI (MIT licensed, LVGL 9): a round 240x240 smartwatch with multiple
+watchfaces, apps (calendar, contacts, timer, navigation, ...), notifications,
+settings and two games (Simon Says, Racing).
+
+It is built as a separate executable with its own LVGL instance, because the
+watchfaces require `LV_COLOR_DEPTH == 16` while the rest of this project uses 32.
+Nothing in it touches the existing `main` executable.
+
+```bash
+# build
+cmake --build build --target c3 -j
+
+# run
+./bin/c3.exe
+# or: cmake --build build --target run_c3
+```
+
+To disable this target, configure with `-DBUILD_C3_MINI=OFF`.
+
 ### Linux
 
 ```bash
