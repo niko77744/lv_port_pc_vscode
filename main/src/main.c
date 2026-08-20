@@ -88,7 +88,7 @@ int SDL_main(int argc, char **argv)
   /*Initialize LVGL*/
   lv_init();
 
-#if 0
+#if 1
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
   hal_init(1280, 720);
 
